@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Produk - NusaLiving</title>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand">NusaLiving</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="keranjang.html">Keranjang</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="filter-bar">
+    <button class="filter active" data-filter="semua">Semua</button>
+    <button class="filter" data-filter="rekomendasi">Rekomendasi</button>
+    <button class="filter" data-filter="diskon">Diskon</button>
+  </section>
+
+  <section class="products">
+    <!-- Contoh produk -->
+    <div class="product-card" data-kategori="rekomendasi">
+      <img src="img/sofaminimalis.jpg" alt="Sofa Minimalis">
+      <div class="info">
+        <h3>Sofa Minimalis</h3>
+        <p class="price">Rp 2.500.000</p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="diskon">
+      <img src="img/lampugantung.jpg" alt="Lampu Gantung">
+      <div class="info">
+        <h3>Lampu Gantung</h3>
+        <p class="price">
+          <span class="old-price">Rp 850.000</span><br>
+          <span class="new-price">Rp 680.000</span>
+        </p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="diskon">
+      <img src="img/kursirotan.jpg" alt="Kursi Rotan">
+      <div class="info">
+        <h3>Kursi Rotan</h3>
+        <p class="price">
+          <span class="old-price">Rp 1.200.000</span><br>
+          <span class="new-price">Rp 950.000</span>
+        </p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="rekomendasi">
+      <img src="img/mejakayu.jpg" alt="Meja Kayu">
+      <div class="info">
+        <h3>Meja Kayu Solid</h3>
+        <p class="price">Rp 1.750.000</p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="diskon">
+      <img src="img/tempattidur.jpg" alt="Tempat Tidur">
+      <div class="info">
+        <h3>Tempat Tidur Queen</h3>
+        <p class="price">
+          <span class="old-price">Rp 3.300.000</span><br>
+          <span class="new-price">Rp 2.800.000</span>
+        </p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="img/rakbuku.jpg" alt="Rak Buku">
+      <div class="info">
+        <h3>Rak Buku Modern</h3>
+        <p class="price">Rp 980.000</p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="diskon">
+      <img src="img/cermin.jpg" alt="Cermin Hias">
+      <div class="info">
+        <h3>Cermin Hias</h3>
+        <p class="price">
+          <span class="old-price">Rp 520.000</span><br>
+          <span class="new-price">Rp 410.000</span>
+        </p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="img/lemaripakaian.jpg" alt="Lemari Pakaian">
+      <div class="info">
+        <h3>Lemari Pakaian</h3>
+        <p class="price">Rp 2.800.000</p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="img/jamdinding.jpg" alt="Jam Dinding">
+      <div class="info">
+        <h3>Jam Dinding Klasik</h3>
+        <p class="price">Rp 320.000</p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="rekomendasi">
+      <img src="img/vasbunga.jpg" alt="Vas Bunga">
+      <div class="info">
+        <h3>Vas Bunga Marmer</h3>
+        <p class="price">Rp 450.000</p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="diskon">
+      <img src="img/karpetlantai.png" alt="Karpet Lantai">
+      <div class="info">
+        <h3>Karpet Lantai Premium</h3>
+        <p class="price">
+          <span class="old-price">Rp 1.100.000</span><br>
+          <span class="new-price">Rp 890.000</span>
+        </p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="diskon">
+      <img src="img/mejabelajaranak.jpg" alt="Meja Belajar">
+      <div class="info">
+        <h3>Meja Belajar Anak</h3>
+        <p class="price">
+          <span class="old-price">Rp 970.000</span><br>
+          <span class="new-price">Rp 820.000</span>
+        </p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="img/tiraijendela.jpg" alt="Tirai Jendela">
+      <div class="info">
+        <h3>Tirai Jendela</h3>
+        <p class="price">Rp 650.000</p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="img/gantunganbesi.jpg" alt="Gantungan Baju">
+      <div class="info">
+        <h3>Gantungan Baju Besi</h3>
+        <p class="price">Rp 180.000</p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-kategori="diskon">
+      <img src="img/dekorasidinding1.jpg" alt="Dekorasi Dinding">
+      <div class="info">
+        <h3>Dekorasi Dinding Artistik</h3>
+        <p class="price">
+          <span class="old-price">Rp 790.000</span><br>
+          <span class="new-price">Rp 620.000</span>
+        </p>
+        <button class="btn-beli">Beli</button>
+      </div>
+    </div>
+    
+  </section>
+
+  <footer>
+    <p>© 2025 NusaLiving. Ciptakan Ruang Hidup yang Bermakna.</p>
+  </footer>
+
+  <script>
+    // FILTER PRODUK
+    const filterButtons = document.querySelectorAll('.filter');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const kategori = button.dataset.filter;
+
+        productCards.forEach(card => {
+          const kategoriCard = card.getAttribute('data-kategori');
+          if (kategori === 'semua') {
+            card.style.display = 'block';
+          } else if (kategoriCard === kategori) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // TAMBAH KE KERANJANG
+    document.querySelectorAll('.btn-beli').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const card = e.target.closest('.product-card');
+        const nama = card.querySelector('h3').innerText;
+        const hargaText = card.querySelector('.new-price')?.innerText || card.querySelector('.price').innerText;
+        const harga = parseInt(hargaText.replace(/[^\d]/g, ''));
+
+        let keranjang = JSON.parse(localStorage.getItem('keranjang')) || {};
+
+        if (keranjang[nama]) {
+          keranjang[nama].jumlah += 1;
+        } else {
+          keranjang[nama] = { harga: harga, jumlah: 1 };
+        }
+
+        localStorage.setItem('keranjang', JSON.stringify(keranjang));
+        alert(`${nama} telah ditambahkan ke keranjang!`);
+      });
+    });
+  </script>
+
+</body>
+</html>

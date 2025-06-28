@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Urbanist', sans-serif;
+  background-color: #FFFDF6;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #2c3e50;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #c49b3f;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #c49b3f;
+}
+
+/* Hero Section dengan gambar latar */
+.hero {
+  background: url('img/beranda.png') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5rem;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background-color: #c49b3f;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.cta:hover {
+  background-color: #a4822e;
+}
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto 1rem;
+  flex-wrap: wrap;
+}
+
+.filter {
+  border: 1px solid #c49b3f;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #c49b3f;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.filter:hover,
+.filter.active {
+  background-color: #c49b3f;
+  color: white;
+}
+
+/* Produk */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 3rem;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+  width: 250px;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-card .info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: #c49b3f;
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+.new-price {
+  color: #d9534f;
+  font-weight: bold;
+}
+
+.btn-beli {
+  margin-top: 1rem;
+  background-color: #c49b3f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-beli:hover {
+  background-color: #a4822e;
+}
+
+/* Footer */
+footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* Filter Target Section */
+.products-section {
+  display: none;
+}
+
+#all:target,
+#rekomendasi:target,
+#diskon:target {
+  display: block;
+}
+
+body:not(:has(:target)) #all {
+  display: block;
+}

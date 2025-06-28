@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keranjang - NusaLiving</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* CSS keranjang kamu tetap seperti semula... (tidak saya ubah) */
+    .cart-table tbody tr {
+      display: grid;
+      grid-template-columns: 1fr 120px 160px 100px 100px;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-table tbody tr td:nth-child(1) {
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding-left: 0.5rem;
+    }
+
+    .cart-table tbody tr td:nth-child(2),
+    .cart-table tbody tr td:nth-child(4) {
+      color: #c49b3f;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .quantity-control button {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      border: 1px solid #c49b3f;
+      background: white;
+      color: #c49b3f;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .quantity-control button:hover {
+      background-color: #c49b3f;
+      color: white;
+    }
+
+    .quantity-control span {
+      font-weight: 600;
+      width: 30px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .delete-btn {
+      background-color: #e74c3c;
+      border: none;
+      padding: 6px 12px;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .delete-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .cart-summary {
+      width: 90%;
+      margin: 2rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #c49b3f;
+    }
+
+    .checkout-btn {
+      background-color: #c49b3f;
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 12px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .checkout-btn:hover {
+      background-color: #a4822e;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">NusaLiving</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="keranjang.html">Keranjang</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="text-align:center; margin: 2rem 0; color:#c49b3f;">Keranjang Belanja</h1>
+
+    <table class="cart-table" style="width: 90%; margin: auto; border-collapse: collapse;">
+      <thead style="display: none;"></thead>
+      <tbody id="keranjang-body">
+        <!-- Barang ditambahkan lewat script -->
+      </tbody>
+    </table>
+
+    <section class="cart-summary">
+      <div id="total-harga">Total: Rp 0</div>
+      <button class="checkout-btn" disabled>Checkout</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NusaLiving. Ciptakan Ruang Hidup yang Bermakna.</p>
+  </footer>
+
+  <script>
+    const keranjang = JSON.parse(localStorage.getItem('keranjang')) || {};
+    const tbody = document.getElementById('keranjang-body');
+    const totalEl = document.getElementById('total-harga');
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    let total = 0;
+
+    for (let nama in keranjang) {
+      const item = keranjang[nama];
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${nama}</td>
+        <td>Rp ${item.harga.toLocaleString()}</td>
+        <td>
+          <div class="quantity-control">
+            <button class="kurang" data-nama="${nama}">-</button>
+            <span>${item.jumlah}</span>
+            <button class="tambah" data-nama="${nama}">+</button>
+          </div>
+        </td>
+        <td>Rp ${(item.harga * item.jumlah).toLocaleString()}</td>
+        <td><button class="delete-btn" data-nama="${nama}">Hapus</button></td>
+      `;
+      tbody.appendChild(tr);
+      total += item.harga * item.jumlah;
+    }
+
+    totalEl.innerText = `Total: Rp ${total.toLocaleString()}`;
+    checkoutBtn.disabled = total === 0;
+
+    tbody.addEventListener('click', e => {
+      const nama = e.target.dataset.nama;
+      if (!nama) return;
+
+      if (e.target.classList.contains('tambah')) {
+        keranjang[nama].jumlah++;
+      } else if (e.target.classList.contains('kurang')) {
+        keranjang[nama].jumlah = Math.max(1, keranjang[nama].jumlah - 1);
+      } else if (e.target.classList.contains('delete-btn')) {
+        delete keranjang[nama];
+      }
+
+      localStorage.setItem('keranjang', JSON.stringify(keranjang));
+      location.reload();
+    });
+  </script>
+</body>
+</html>
